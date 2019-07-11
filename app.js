@@ -15,6 +15,7 @@ const Categoria = mongoose.model("categorias")
 const usuarios = require("./routes/usuario")
 const passport = require("passport")
 require("./config/auth")(passport) //Foi passado esse parâmatro pq na linha 10 do auth.js essa variável está sendo declarada como parâmetro.
+const db = require("./config/db")
 
 // Configurações
 //Configurar sessão
@@ -45,7 +46,7 @@ app.engine('handlebars', handlebars({ defaulLayaout: 'main' }))
 app.set('view engine', 'handlebars');
 // Mogoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/blogapp")
+mongoose.connect(db.mongoURI)
     .then(() => {
         console.log("Conectado ao mongo")
     })
