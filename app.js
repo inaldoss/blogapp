@@ -46,7 +46,7 @@ app.engine('handlebars', handlebars({ defaulLayaout: 'main' }))
 app.set('view engine', 'handlebars');
 // Mogoose
 mongoose.Promise = global.Promise;
-mongoose.connect(db.mongoURI)
+mongoose.connect(db.MONGOURI)
     .then(() => {
         console.log("Conectado ao mongo")
     })
